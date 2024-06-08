@@ -4,17 +4,12 @@
 
 <template>
   <header class="header">
+    <div class="header__slide-menu"></div>
     <MainContainer class="header__container">
-      <nav class="header__menu menu">
-        <NuxtLink to="/" class="menu__logo">
-          <img
-            :src="logoSrc"
-            alt="logo"
-            loading="lazy"
-            width="119"
-            height="26"
-          />
-        </NuxtLink>
+      <NuxtLink to="/" class="header__logo">
+        <img :src="logoSrc" alt="logo" loading="lazy" width="119" height="26" />
+      </NuxtLink>
+      <nav class="header__menu menu menu_left">
         <ul class="menu__list">
           <li class="menu__item">
             <MenuLink to="/">Тарифы</MenuLink>
@@ -24,15 +19,24 @@
           </li>
         </ul>
       </nav>
-      <div class="header__actions">
-        <MenuLink to="tel:+79621660797" class="header__phone"
-          >+7 495 118-44-22</MenuLink
-        >
-        <MenuLink to="/">Вход</MenuLink>
-        <ElButton class="header__registration btn btn__light-blue"
-          >Регистрация</ElButton
-        >
-      </div>
+      <nav class="header__menu menu menu_right">
+        <ul class="menu__list">
+          <li class="menu__item">
+            <MenuLink to="tel:+79621660797" class="menu__phone"
+              >+7 495 118-44-22</MenuLink
+            >
+          </li>
+          <li class="menu__item">
+            <MenuLink to="/">Вход</MenuLink>
+          </li>
+          <li class="menu__item">
+            <ElButton class="menu__registration btn btn__light-blue"
+              >Регистрация</ElButton
+            >
+          </li>
+        </ul>
+      </nav>
+      <button class="header__burger">Бургер</button>
     </MainContainer>
   </header>
 </template>
@@ -49,34 +53,38 @@
     @apply py-[12px];
     // .header__container
     &__container {
-      @apply flex justify-between items-center gap-[10px];
+      @apply grid items-center gap-[30px] grid-cols-[auto,1fr,auto];
     }
     // .header__menu
     &__menu {
     }
-    // .header__actions
-    &__actions {
-      @apply flex gap-[30px] items-center;
+    &__burger {
+      @apply hidden;
     }
-    // .header__phone
-    &__phone {
-      @apply font-bold;
-    }
-    // .header__registration
-    &__registration {
+    // .header__logo
+    &__logo {
     }
   }
   .menu {
-    @apply flex gap-[30px] items-center;
-    // .menu__logo
-    &__logo {
+    &_left {
     }
+
+    &_right {
+    }
+    @apply flex gap-[30px] items-center;
     // .menu__list
     &__list {
       @apply flex gap-[30px] items-center;
     }
     // .menu__item
     &__item {
+    }
+    // .menu__phone
+    &__phone {
+      @apply font-bold;
+    }
+    // .menu__registration
+    &__registration {
     }
   }
 </style>
