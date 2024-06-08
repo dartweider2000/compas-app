@@ -10,6 +10,7 @@
   .main-page {
     // .main-page__form-block
     &__form-block {
+      @apply mt-[79px];
     }
   }
 </style>

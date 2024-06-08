@@ -1,6 +1,5 @@
 <script setup lang="ts">
   import macImageSrc from "~/assets/img/mac-iphone-image.png";
-  import arrowImageSrc from "~/assets/img/button-arrow.svg";
   import youtubeImageSrc from "~/assets/img/youtube.svg";
 </script>
 
@@ -20,20 +19,30 @@
           label-position="top"
           @submit.prevent
         >
-          <ElFormItem class="top-block__form-item block-from-item">
+          <ElFormItem
+            class="top-block__form-item block-from-item"
+            label="Номер автомобиля"
+          >
             <ElInput class="top-block__form-item block-input" />
           </ElFormItem>
-          <ElFormItem class="top-block__form-item block-from-item">
+          <ElFormItem
+            class="top-block__form-item block-from-item"
+            label="Регион"
+          >
             <ElInput class="top-block__form-item block-input" />
           </ElFormItem>
-          <ElFormItem class="top-block__form-item block-from-item">
+          <ElFormItem
+            class="top-block__form-item block-from-item"
+            label="Свидетельство о регистрации ТС"
+          >
             <ElInput class="top-block__form-item block-input" />
           </ElFormItem>
         </ElForm>
         <div class="top-block__actions">
           <button class="top-block__light-blue-button btn btn_light-blue">
             <span>Проверить штрафы</span>
-            <img :src="arrowImageSrc" alt="arrow" loading="lazy" />
+            <!-- <img :src="arrowImageSrc" alt="arrow" loading="lazy" /> -->
+            <SvgArrow />
           </button>
           <button class="top-block__youtube-button btn btn_youtube">
             <img :src="youtubeImageSrc" alt="youtube" loading="lazy" />
@@ -54,27 +63,46 @@
   .top-block {
     // .top-block__container
     &__container {
+      @apply grid grid-rows-[auto,auto] grid-cols-[1fr,auto] gap-x-[40px] gap-y-[25px];
     }
     // .top-block__title
     &__title {
     }
     // .top-block__image
     &__image {
+      @apply row-span-2;
     }
     // .top-block__form-wrapper
     &__form-wrapper {
     }
     // .top-block__form
     &__form {
+      @apply grid grid-rows-[auto,auto] grid-cols-[2fr,1fr] gap-x-[30px] gap-y-[16px];
     }
     // .top-block__form-item
     &__form-item {
+      &:last-child {
+        @apply col-span-2;
+      }
     }
     // .top-block__actions
     &__actions {
     }
     // .top-block__light-blue-button
     &__light-blue-button {
+      @apply flex gap-[6px] items-center;
+
+      @media (hover: hover) {
+        &:hover {
+          :deep(.path) {
+            @apply fill-[--light-blue];
+          }
+        }
+      }
+
+      & svg {
+        @apply mt-[2px];
+      }
     }
     // .top-block__youtube-button
     &__youtube-button {
