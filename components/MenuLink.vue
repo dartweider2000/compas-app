@@ -17,7 +17,7 @@
 <style scoped lang="scss">
   .menu-link {
     @apply text-[--white] text-[18px] leading-[23px];
-    transition: var(--trans);
+    transition: color 0.3s ease 0s;
 
     @media (max-width: 768px) {
       @apply text-[22px];
