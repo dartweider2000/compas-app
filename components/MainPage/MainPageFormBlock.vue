@@ -44,7 +44,7 @@
           </button>
           <button class="top-block__youtube-button btn btn_youtube">
             <SvgYoutube />
-            <span>Проверить штрафы</span>
+            <span>О сервисе</span>
             <span>(1 мин. 20 сек)</span>
           </button>
         </div>
