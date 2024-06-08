@@ -65,9 +65,9 @@
               <MenuLink to="/">Вход</MenuLink>
             </li>
             <li class="menu__item">
-              <ElButton class="menu__registration btn btn__light-blue"
-                >Регистрация</ElButton
-              >
+              <button class="menu__registration btn btn__light-blue">
+                Регистрация
+              </button>
             </li>
           </ul>
         </nav>

@@ -15,7 +15,7 @@
 
   --container-padding: 16px;
   --container-width: calc(1180px + var(--container-padding) * 2);
-  --header-height: 56px;
+  --header-height: 65px;
 }
 
 * {
@@ -27,4 +27,4 @@ body {
 } 
 
 
-@import "./element-plus.scss";
+@import "./ui.scss";
