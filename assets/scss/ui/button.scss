@@ -1,7 +1,7 @@
 .btn {
   @apply rounded-[7px];
   // .btn__light-blue
-  &__light-blue {
+  &_light-blue {
     @apply py-[9px] px-[18px] text-[15px] leading-[19px] text-[--white] bg-[--light-blue] border-[1px] border-solid border-[--light-blue] font-normal;
     transition: var(--trans);
 

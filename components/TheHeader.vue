@@ -65,7 +65,7 @@
               <MenuLink to="/">Вход</MenuLink>
             </li>
             <li class="menu__item">
-              <button class="menu__registration btn btn__light-blue">
+              <button class="menu__registration btn btn_light-blue">
                 Регистрация
               </button>
             </li>
