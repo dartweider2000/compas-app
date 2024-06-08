@@ -2,6 +2,10 @@
   defineProps<{
     to: string;
   }>();
+
+  defineSlots<{
+    default: () => any;
+  }>();
 </script>
 
 <template>
