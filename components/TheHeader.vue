@@ -17,13 +17,13 @@
     )
       return;
 
-    if (matchMedia.value.matches) {
-      slideMenu.value.append(leftMenu.value);
-      slideMenu.value.append(rightMenu.value);
-    } else {
-      logo.value.after(leftMenu.value);
-      leftMenu.value.after(rightMenu.value);
-    }
+    // if (matchMedia.value.matches) {
+    //   slideMenu.value.append(leftMenu.value);
+    //   slideMenu.value.append(rightMenu.value);
+    // } else {
+    //   logo.value.after(leftMenu.value);
+    //   leftMenu.value.after(rightMenu.value);
+    // }
   };
 
   onMounted(() => {
@@ -40,38 +40,39 @@
 
 <template>
   <header class="header">
-    <div ref="slideMenu" class="header__slide-menu"></div>
     <MainContainer class="header__container">
       <NuxtLink ref="logo" to="/" class="header__logo">
         <img :src="logoSrc" alt="logo" loading="lazy" width="119" height="26" />
       </NuxtLink>
-      <nav ref="leftMenu" class="header__menu menu menu_left">
-        <ul class="menu__list">
-          <li class="menu__item">
-            <MenuLink to="/">Тарифы</MenuLink>
-          </li>
-          <li class="menu__item">
-            <MenuLink to="/">Контакты</MenuLink>
-          </li>
-        </ul>
-      </nav>
-      <nav ref="rightMenu" class="header__menu menu menu_right">
-        <ul class="menu__list">
-          <li class="menu__item">
-            <MenuLink to="tel:+79621660797" class="menu__phone"
-              >+7 495 118-44-22</MenuLink
-            >
-          </li>
-          <li class="menu__item">
-            <MenuLink to="/">Вход</MenuLink>
-          </li>
-          <li class="menu__item">
-            <ElButton class="menu__registration btn btn__light-blue"
-              >Регистрация</ElButton
-            >
-          </li>
-        </ul>
-      </nav>
+      <div ref="slideMenu" class="header__slide-menu">
+        <nav ref="leftMenu" class="header__menu menu menu_left">
+          <ul class="menu__list">
+            <li class="menu__item">
+              <MenuLink to="/">Тарифы</MenuLink>
+            </li>
+            <li class="menu__item">
+              <MenuLink to="/">Контакты</MenuLink>
+            </li>
+          </ul>
+        </nav>
+        <nav ref="rightMenu" class="header__menu menu menu_right">
+          <ul class="menu__list">
+            <li class="menu__item">
+              <MenuLink to="tel:+79621660797" class="menu__phone"
+                >+7 495 118-44-22</MenuLink
+              >
+            </li>
+            <li class="menu__item">
+              <MenuLink to="/">Вход</MenuLink>
+            </li>
+            <li class="menu__item">
+              <ElButton class="menu__registration btn btn__light-blue"
+                >Регистрация</ElButton
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
       <button class="header__burger">Бургер</button>
     </MainContainer>
   </header>
@@ -89,27 +90,32 @@
     @apply py-[12px];
     // .header__container
     &__container {
-      @apply grid items-center gap-[30px] grid-cols-[auto,1fr,auto];
+      @apply grid items-center gap-[30px] grid-cols-[auto,1fr];
 
-      @media (max-width: 768px) {
-        @apply grid-cols-[1fr,auto];
-      }
+      // @media (max-width: 768px) {
+      //   @apply grid-cols-[1fr,auto];
+      // }
     }
     &__slide-menu {
-      @apply fixed top-0 left-0 h-full translate-x-[-100%];
+      @apply grid;
 
       @media (min-width: 769px) {
-        @apply hidden;
+        @apply grid-cols-[1fr,auto];
       }
 
-      &_open {
-        @apply translate-x-[0];
+      @media (max-width: 768px) {
+        @apply fixed top-0 left-0 h-full translate-x-[-100%];
+
+        &_open {
+          @apply translate-x-[0];
+        }
       }
     }
     // .header__menu
     &__menu {
     }
     &__burger {
+      @apply justify-self-end;
       @media (min-width: 769px) {
         @apply hidden;
       }
