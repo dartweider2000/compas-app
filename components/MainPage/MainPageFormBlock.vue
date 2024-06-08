@@ -1,6 +1,5 @@
 <script setup lang="ts">
   import macImageSrc from "~/assets/img/mac-iphone-image.png";
-  import youtubeImageSrc from "~/assets/img/youtube.svg";
 </script>
 
 <template>
@@ -41,11 +40,10 @@
         <div class="top-block__actions">
           <button class="top-block__light-blue-button btn btn_light-blue">
             <span>Проверить штрафы</span>
-            <!-- <img :src="arrowImageSrc" alt="arrow" loading="lazy" /> -->
             <SvgArrow />
           </button>
           <button class="top-block__youtube-button btn btn_youtube">
-            <img :src="youtubeImageSrc" alt="youtube" loading="lazy" />
+            <SvgYoutube />
             <span>Проверить штрафы</span>
             <span>(1 мин. 20 сек)</span>
           </button>
@@ -87,6 +85,7 @@
     }
     // .top-block__actions
     &__actions {
+      @apply flex flex-wrap gap-[21px];
     }
     // .top-block__light-blue-button
     &__light-blue-button {
@@ -106,6 +105,40 @@
     }
     // .top-block__youtube-button
     &__youtube-button {
+      @apply grid grid-flow-col gap-[4px] py-[11px] px-[20px] border-[1px] border-solid border-[--light-blue] items-center;
+
+      @media (hover: hover) {
+        &:hover {
+          @apply bg-[--light-blue];
+
+          :deep(.path-fill) {
+            @apply fill-red-600;
+          }
+
+          :deep(.path-stroke) {
+            @apply stroke-red-600 fill-[--white];
+          }
+
+          & > span {
+            &:first-of-type {
+              @apply text-[--white];
+            }
+            &:last-of-type {
+              @apply text-[--white];
+            }
+          }
+        }
+      }
+
+      & > span {
+        transition: var(--trans);
+        &:first-of-type {
+          @apply text-[18px] leading-[23px] text-[--black];
+        }
+        &:last-of-type {
+          @apply text-[15px] leading-[19px] text-[--dark-blue];
+        }
+      }
     }
     // .top-block__warning
     &__warning {
