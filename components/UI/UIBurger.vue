@@ -33,7 +33,7 @@
     }
 
     & > span {
-      @apply top-[50%] translate-y-[-50%] h-[1.5px];
+      @apply top-[50%] translate-y-[-50%];
     }
 
     &_active {
