@@ -31,6 +31,13 @@
 
 <style scoped lang="scss">
   .header {
+    background: linear-gradient(
+      to right,
+      var(--black) 0%,
+      var(--black) 30%,
+      var(--very-dark-blue) 73%,
+      var(--very-dark-blue) 100%
+    );
     @apply py-[12px];
     // .header__container
     &__container {
