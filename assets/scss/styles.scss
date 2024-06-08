@@ -17,6 +17,10 @@
   --container-width: calc(1180px + var(--container-padding) * 2);
 }
 
+* {
+  outline: none;
+}
+
 body {
   font-family: "PT Sans", sans-serif;
 } 
