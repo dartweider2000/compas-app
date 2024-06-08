@@ -20,7 +20,7 @@
     &::before,
     &::after,
     & > span {
-      @apply absolute w-[100%] h-[2px] bg-[--white];
+      @apply absolute w-[100%] h-[2px] bg-[--white] left-0;
       transition: var(--trans);
     }
 
@@ -33,16 +33,16 @@
     }
 
     & > span {
-      @apply top-[50%] translate-y-[-50%];
+      @apply top-[50%] translate-y-[-50%] h-[1.5px];
     }
 
     &_active {
       &::before {
-        @apply top-[50%] rotate-[45deg] translate-y-[-50%];
+        @apply top-[9px] rotate-[45deg];
       }
 
       &::after {
-        @apply bottom-[50%] rotate-[-45deg] translate-y-[-50%];
+        @apply bottom-[9px] rotate-[-45deg];
       }
 
       & > span {
