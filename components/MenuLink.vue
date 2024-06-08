@@ -17,5 +17,12 @@
 <style scoped lang="scss">
   .menu-link {
     @apply text-[--white] text-[18px] leading-[23px];
+    transition: var(--trans);
+
+    @media (hover: hover) {
+      &:hover {
+        @apply text-[--light-blue];
+      }
+    }
   }
 </style>
