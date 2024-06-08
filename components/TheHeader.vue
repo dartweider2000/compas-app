@@ -20,7 +20,10 @@
       </nav>
       <div class="header__actions">
         <a href="tel:79621660797" class="header__phone">+7 495 118-44-22</a>
-        <MenuLink to="/">Контакты</MenuLink>
+        <MenuLink to="/">Вход</MenuLink>
+        <ElButton class="header__registration btn btn__light-blue"
+          >Регистрация</ElButton
+        >
       </div>
     </MainContainer>
   </header>
