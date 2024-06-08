@@ -6,4 +6,9 @@ export default defineNuxtConfig({
     "@element-plus/nuxt",
     "@nuxtjs/google-fonts",
   ],
+  googleFonts: {
+    families: {
+      "PT Sans": [400],
+    },
+  },
 });
