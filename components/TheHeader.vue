@@ -6,6 +6,9 @@
   const rightMenu = ref<HTMLElement | null>(null);
   const logo = ref<HTMLElement | null>(null);
 
+  const isOpen = ref<boolean>(false);
+  const isLoaded = ref<boolean>(false);
+
   const matchMedia = ref<MediaQueryList | null>(null);
   const matchMediaChangeHandler = () => {
     if (
@@ -17,13 +20,13 @@
     )
       return;
 
-    // if (matchMedia.value.matches) {
-    //   slideMenu.value.append(leftMenu.value);
-    //   slideMenu.value.append(rightMenu.value);
-    // } else {
-    //   logo.value.after(leftMenu.value);
-    //   leftMenu.value.after(rightMenu.value);
-    // }
+    if (matchMedia.value.matches) {
+      slideMenu.value.style.transition = "none";
+      setTimeout(() => {
+        slideMenu.value!.style.transition = "";
+      });
+    } else {
+    }
   };
 
   onMounted(() => {
@@ -31,6 +34,8 @@
 
     matchMediaChangeHandler();
     matchMedia.value.addEventListener("change", matchMediaChangeHandler);
+
+    isLoaded.value = true;
   });
 
   onUnmounted(() => {
@@ -44,7 +49,11 @@
       <NuxtLink ref="logo" to="/" class="header__logo">
         <img :src="logoSrc" alt="logo" loading="lazy" width="119" height="26" />
       </NuxtLink>
-      <div ref="slideMenu" class="header__slide-menu">
+      <div
+        ref="slideMenu"
+        class="header__slide-menu"
+        :class="{ 'header__slide-menu_open': isOpen, 'no-trans': !isLoaded }"
+      >
         <nav ref="leftMenu" class="header__menu menu menu_left">
           <ul class="menu__list">
             <li class="menu__item">
@@ -73,13 +82,18 @@
           </ul>
         </nav>
       </div>
-      <button class="header__burger">Бургер</button>
+      <UIBurger
+        v-model="isOpen"
+        class="header__burger"
+        @click="isOpen = !isOpen"
+      />
     </MainContainer>
   </header>
 </template>
 
 <style scoped lang="scss">
   .header {
+    @apply h-[--header-height] grid items-center;
     background: linear-gradient(
       to right,
       var(--black) 0%,
@@ -91,10 +105,6 @@
     // .header__container
     &__container {
       @apply grid items-center gap-[30px] grid-cols-[auto,1fr];
-
-      // @media (max-width: 768px) {
-      //   @apply grid-cols-[1fr,auto];
-      // }
     }
     &__slide-menu {
       @apply grid;
@@ -104,7 +114,9 @@
       }
 
       @media (max-width: 768px) {
-        @apply fixed top-0 left-0 h-full translate-x-[-100%];
+        @apply fixed top-[--header-height] left-0 translate-x-[-100%] h-full bg-[--black];
+        transition: var(--trans);
+        will-change: transform;
 
         &_open {
           @apply translate-x-[0];
