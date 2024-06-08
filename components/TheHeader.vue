@@ -19,7 +19,9 @@
         </ul>
       </nav>
       <div class="header__actions">
-        <a href="tel:79621660797" class="header__phone">+7 495 118-44-22</a>
+        <MenuLink to="tel:79621660797" class="header__phone"
+          >+7 495 118-44-22</MenuLink
+        >
         <MenuLink to="/">Вход</MenuLink>
         <ElButton class="header__registration btn btn__light-blue"
           >Регистрация</ElButton
@@ -52,6 +54,7 @@
     }
     // .header__phone
     &__phone {
+      @apply font-bold;
     }
     // .header__registration
     &__registration {

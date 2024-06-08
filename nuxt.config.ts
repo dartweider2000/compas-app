@@ -9,7 +9,7 @@ export default defineNuxtConfig({
   ],
   googleFonts: {
     families: {
-      "PT Sans": [400],
+      "PT Sans": [400, 700],
     },
   },
 });
