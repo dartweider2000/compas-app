@@ -54,12 +54,29 @@
     // .header__container
     &__container {
       @apply grid items-center gap-[30px] grid-cols-[auto,1fr,auto];
+
+      @media (max-width: 768px) {
+        @apply grid-cols-[1fr,auto];
+      }
+    }
+    &__slide-menu {
+      @apply fixed top-0 left-0 h-full translate-x-[-100%];
+
+      @media (min-width: 769px) {
+        @apply hidden;
+      }
+
+      &_open {
+        @apply translate-x-[0];
+      }
     }
     // .header__menu
     &__menu {
     }
     &__burger {
-      @apply hidden;
+      @media (min-width: 769px) {
+        @apply hidden;
+      }
     }
     // .header__logo
     &__logo {
