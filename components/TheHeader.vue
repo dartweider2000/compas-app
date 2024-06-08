@@ -1,15 +1,51 @@
 <script setup lang="ts">
   import logoSrc from "~/assets/img/logo.svg";
+
+  const slideMenu = ref<HTMLElement | null>(null);
+  const leftMenu = ref<HTMLElement | null>(null);
+  const rightMenu = ref<HTMLElement | null>(null);
+  const logo = ref<HTMLElement | null>(null);
+
+  const matchMedia = ref<MediaQueryList | null>(null);
+  const matchMediaChangeHandler = () => {
+    if (
+      !matchMedia.value ||
+      !leftMenu.value ||
+      !rightMenu.value ||
+      !logo.value ||
+      !slideMenu.value
+    )
+      return;
+
+    if (matchMedia.value.matches) {
+      slideMenu.value.append(leftMenu.value);
+      slideMenu.value.append(rightMenu.value);
+    } else {
+      logo.value.after(leftMenu.value);
+      leftMenu.value.after(rightMenu.value);
+    }
+  };
+
+  onMounted(() => {
+    matchMedia.value = window.matchMedia("(max-width: 768px)");
+
+    matchMediaChangeHandler();
+    matchMedia.value.addEventListener("change", matchMediaChangeHandler);
+  });
+
+  onUnmounted(() => {
+    matchMedia.value?.removeEventListener("change", matchMediaChangeHandler);
+  });
 </script>
 
 <template>
   <header class="header">
-    <div class="header__slide-menu"></div>
+    <div ref="slideMenu" class="header__slide-menu"></div>
     <MainContainer class="header__container">
-      <NuxtLink to="/" class="header__logo">
+      <NuxtLink ref="logo" to="/" class="header__logo">
         <img :src="logoSrc" alt="logo" loading="lazy" width="119" height="26" />
       </NuxtLink>
-      <nav class="header__menu menu menu_left">
+      <nav ref="leftMenu" class="header__menu menu menu_left">
         <ul class="menu__list">
           <li class="menu__item">
             <MenuLink to="/">Тарифы</MenuLink>
@@ -19,7 +55,7 @@
           </li>
         </ul>
       </nav>
-      <nav class="header__menu menu menu_right">
+      <nav ref="rightMenu" class="header__menu menu menu_right">
         <ul class="menu__list">
           <li class="menu__item">
             <MenuLink to="tel:+79621660797" class="menu__phone"
