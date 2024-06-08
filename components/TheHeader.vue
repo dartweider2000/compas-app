@@ -11,15 +11,16 @@
         </NuxtLink>
         <ul class="menu__list">
           <li class="menu__item">
-            <NuxtLink class="menu__link">Тарифы</NuxtLink>
+            <MenuLink to="/">Тарифы</MenuLink>
           </li>
           <li class="menu__item">
-            <NuxtLink class="menu__link">Тарифы</NuxtLink>
+            <MenuLink to="/">Контакты</MenuLink>
           </li>
         </ul>
       </nav>
       <div class="header__actions">
         <a href="tel:79621660797" class="header__phone">+7 495 118-44-22</a>
+        <MenuLink to="/">Контакты</MenuLink>
       </div>
     </MainContainer>
   </header>
