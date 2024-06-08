@@ -9,4 +9,8 @@
   </div>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+  .wrapper {
+    @apply min-h-dvh grid grid-rows-[auto,1fr];
+  }
+</style>
