@@ -7,7 +7,13 @@
     <MainContainer class="header__container">
       <nav class="header__menu menu">
         <NuxtLink to="/" class="menu__logo">
-          <img :src="logoSrc" alt="logo" loading="lazy" />
+          <img
+            :src="logoSrc"
+            alt="logo"
+            loading="lazy"
+            width="119"
+            height="26"
+          />
         </NuxtLink>
         <ul class="menu__list">
           <li class="menu__item">
