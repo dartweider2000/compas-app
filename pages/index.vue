@@ -1,7 +1,15 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div>1</div>
+  <main class="main-page">
+    <MainPageFormBlock class="main-page__form-block" />
+  </main>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+  .main-page {
+    // .main-page__form-block
+    &__form-block {
+    }
+  }
+</style>
