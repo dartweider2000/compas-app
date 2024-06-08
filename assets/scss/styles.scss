@@ -10,6 +10,9 @@
   --card-fill: #FBFCFD;
   --inactive-bullet: #D9D9D9;
   --popup-bg: rgba(0, 0, 0, 0.79);
+
+  --container-padding: 16px;
+  --container-width: calc(1180px + var(--container-padding) * 2);
 }
 
 
