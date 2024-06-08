@@ -19,7 +19,7 @@
         </ul>
       </nav>
       <div class="header__actions">
-        <MenuLink to="tel:79621660797" class="header__phone"
+        <MenuLink to="tel:+79621660797" class="header__phone"
           >+7 495 118-44-22</MenuLink
         >
         <MenuLink to="/">Вход</MenuLink>
