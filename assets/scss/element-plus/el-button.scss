@@ -9,5 +9,14 @@
         @apply bg-[--white] text-[--light-blue];
       }
     }
+
+    @media (hover: none) {
+      &:hover {
+        @apply bg-[--light-blue] text-[--white] border-[--light-blue];
+      }
+      &:active {
+        @apply bg-[--white] text-[--light-blue];
+      }
+    }
   }
 }

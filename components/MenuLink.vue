@@ -24,5 +24,11 @@
         @apply text-[--light-blue];
       }
     }
+
+    @media (hover: none) {
+      &:active {
+        @apply text-[--light-blue];
+      }
+    }
   }
 </style>
