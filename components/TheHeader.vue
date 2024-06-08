@@ -2,23 +2,12 @@
   import logoSrc from "~/assets/img/logo.svg";
 
   const slideMenu = ref<HTMLElement | null>(null);
-  const leftMenu = ref<HTMLElement | null>(null);
-  const rightMenu = ref<HTMLElement | null>(null);
-  const logo = ref<HTMLElement | null>(null);
-
   const isOpen = ref<boolean>(false);
   const isLoaded = ref<boolean>(false);
 
   const matchMedia = ref<MediaQueryList | null>(null);
   const matchMediaChangeHandler = () => {
-    if (
-      !matchMedia.value ||
-      !leftMenu.value ||
-      !rightMenu.value ||
-      !logo.value ||
-      !slideMenu.value
-    )
-      return;
+    if (!matchMedia.value || !slideMenu.value) return;
 
     if (matchMedia.value.matches) {
       slideMenu.value.style.transition = "none";
@@ -26,6 +15,7 @@
         slideMenu.value!.style.transition = "";
       });
     } else {
+      isOpen.value = false;
     }
   };
 
@@ -46,7 +36,7 @@
 <template>
   <header class="header">
     <MainContainer class="header__container">
-      <NuxtLink ref="logo" to="/" class="header__logo">
+      <NuxtLink to="/" class="header__logo">
         <img :src="logoSrc" alt="logo" loading="lazy" width="119" height="26" />
       </NuxtLink>
       <div
@@ -54,7 +44,7 @@
         class="header__slide-menu"
         :class="{ 'header__slide-menu_open': isOpen, 'no-trans': !isLoaded }"
       >
-        <nav ref="leftMenu" class="header__menu menu menu_left">
+        <nav class="header__menu menu menu_left">
           <ul class="menu__list">
             <li class="menu__item">
               <MenuLink to="/">Тарифы</MenuLink>
@@ -64,7 +54,7 @@
             </li>
           </ul>
         </nav>
-        <nav ref="rightMenu" class="header__menu menu menu_right">
+        <nav class="header__menu menu menu_right">
           <ul class="menu__list">
             <li class="menu__item">
               <MenuLink to="tel:+79621660797" class="menu__phone"
@@ -114,7 +104,7 @@
       }
 
       @media (max-width: 768px) {
-        @apply fixed top-[--header-height] left-0 translate-x-[-100%] h-full bg-[--black];
+        @apply fixed top-[--header-height] left-0 translate-x-[-100%] h-full w-[70%] bg-[--black] content-start gap-[20px] p-[20px];
         transition: var(--trans);
         will-change: transform;
 
@@ -142,10 +132,14 @@
 
     &_right {
     }
-    @apply flex gap-[30px] items-center;
+    @apply flex items-center;
     // .menu__list
     &__list {
-      @apply flex gap-[30px] items-center;
+      @apply flex gap-[30px] items-center w-full;
+
+      @media (max-width: 768px) {
+        @apply grid gap-[20px];
+      }
     }
     // .menu__item
     &__item {
@@ -156,6 +150,9 @@
     }
     // .menu__registration
     &__registration {
+      @media (max-width: 768px) {
+        @apply w-full text-[18px];
+      }
     }
   }
 </style>

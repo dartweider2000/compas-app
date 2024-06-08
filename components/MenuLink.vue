@@ -19,6 +19,10 @@
     @apply text-[--white] text-[18px] leading-[23px];
     transition: var(--trans);
 
+    @media (max-width: 768px) {
+      @apply text-[22px];
+    }
+
     @media (hover: hover) {
       &:hover {
         @apply text-[--light-blue];
