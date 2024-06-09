@@ -70,6 +70,8 @@
       });
     }
   };
+
+  const isWatchVideo = ref<boolean>(false);
 </script>
 
 <template>
@@ -144,6 +146,7 @@
           <button
             class="top-block__youtube-button btn btn_youtube"
             tabindex="5"
+            @click="isWatchVideo = true"
           >
             <SvgYoutube />
             <span>О сервисе</span>
@@ -157,7 +160,11 @@
       </div>
     </MainContainer>
     <Teleport to="body">
-      <MainPagePopup class="popup-block" />
+      <MainPagePopup
+        v-if="isWatchVideo"
+        class="popup-block"
+        @close="isWatchVideo = false"
+      />
     </Teleport>
   </section>
 </template>

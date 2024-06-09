@@ -1,7 +1,11 @@
 <script setup lang="ts">
-  defineEmits<{
+  import { onClickOutside } from "@vueuse/core";
+
+  const emit = defineEmits<{
     close: [];
   }>();
+
+  const popupContentEl = ref<HTMLElement | null>(null);
 
   onMounted(() => {
     document.body.style.overflow = "hidden";
@@ -10,12 +14,16 @@
   onUnmounted(() => {
     document.body.style.overflow = "";
   });
+
+  onClickOutside(popupContentEl, () => {
+    emit("close");
+  });
 </script>
 
 <template>
   <div class="popup">
     <div class="popup__body">
-      <div class="popup__content">
+      <div ref="popupContentEl" class="popup__content">
         <UIBurger
           :model-value="true"
           class="popup__close"
@@ -42,7 +50,7 @@
     @apply z-[--popup-z-index] fixed top-0 left-0 w-full h-full bg-[--popup-bg] flex justify-center items-center;
     // .popup__body
     &__body {
-      @apply p-[--container-padding] max-w-[960px] max-h-[532px] w-full h-full;
+      @apply p-[--container-padding] max-w-[960px] max-h-[532px] w-full h-full grid items-center;
       // @apply w;
     }
     // .popup__content
@@ -54,7 +62,8 @@
     }
     // .popup__video
     &__video {
-      @apply relative aspect-video;
+      @apply relative aspect-video w-full;
+      max-height: calc(100dvh - 20px * 4);
 
       & > * {
         @apply absolute top-0 left-0 w-full h-full object-cover;
