@@ -1,7 +1,9 @@
 <script setup lang="ts">
   import logoSrc from "~/assets/img/logo.svg";
+  import { onClickOutside } from "@vueuse/core";
 
   const slideMenu = ref<HTMLElement | null>(null);
+  const header = ref<HTMLElement | null>(null);
   const isOpen = ref<boolean>(false);
   const isLoaded = ref<boolean>(false);
 
@@ -19,6 +21,15 @@
     }
   };
 
+  watch(isOpen, () => {
+    if (isOpen.value) document.body.style.overflow = "hidden";
+    else document.body.style.overflow = "";
+  });
+
+  onClickOutside(header, () => {
+    isOpen.value = false;
+  });
+
   onMounted(() => {
     matchMedia.value = window.matchMedia("(max-width: 768px)");
 
@@ -34,7 +45,7 @@
 </script>
 
 <template>
-  <header class="header">
+  <header ref="header" class="header">
     <MainContainer class="header__container">
       <NuxtLink to="/" class="header__logo">
         <img :src="logoSrc" alt="logo" loading="lazy" width="119" height="26" />
