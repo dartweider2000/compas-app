@@ -19,19 +19,19 @@
           @submit.prevent
         >
           <ElFormItem
-            class="top-block__form-item block-from-item"
+            class="top-block__form-item block-form-item"
             label="Номер автомобиля"
           >
             <ElInput class="top-block__form-item block-input" tabindex="1" />
           </ElFormItem>
           <ElFormItem
-            class="top-block__form-item block-from-item"
+            class="top-block__form-item block-form-item"
             label="Регион"
           >
             <ElInput class="top-block__form-item block-input" tabindex="2" />
           </ElFormItem>
           <ElFormItem
-            class="top-block__form-item block-from-item"
+            class="top-block__form-item block-form-item"
             label="Свидетельство о регистрации ТС"
           >
             <ElInput class="top-block__form-item block-input" tabindex="3" />
@@ -177,12 +177,6 @@
     // .top-block__warning
     &__warning {
     }
-  }
-  .block-form {
-  }
-  .block-from-item {
-  }
-  .block-input {
   }
   .btn {
     // .btn_light-blue
