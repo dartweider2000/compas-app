@@ -11,6 +11,6 @@
 
 <style scoped lang="scss">
   .wrapper {
-    @apply min-h-dvh grid grid-rows-[auto,1fr];
+    @apply min-h-dvh overflow-hidden;
   }
 </style>
