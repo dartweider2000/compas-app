@@ -3,7 +3,7 @@
 <template>
   <main class="main-page">
     <MainPageFormBlock class="main-page__form-block" />
-    <MainPagePlusCards class="main-page__cards-block" />
+    <LazyMainPagePlusCards class="main-page__cards-block" />
     <LazyMainPageSlider class="main-page__slider-block" />
   </main>
 </template>

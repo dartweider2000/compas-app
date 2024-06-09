@@ -74,7 +74,7 @@
         <nav class="header__menu menu menu_right">
           <ul class="menu__list">
             <li class="menu__item">
-              <MenuLink to="tel:+79621660797" class="menu__phone"
+              <MenuLink to="tel:+74951184422" class="menu__phone"
                 >+7 495 118-44-22</MenuLink
               >
             </li>
