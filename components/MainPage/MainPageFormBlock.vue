@@ -78,6 +78,7 @@
     }
     // .top-block__form-wrapper
     &__form-wrapper {
+      @apply grid gap-[15px];
     }
     // .top-block__form
     &__form {
@@ -176,6 +177,7 @@
     }
     // .top-block__warning
     &__warning {
+      @apply text-[13px] leading-[120%] text-[--text-gray];
     }
   }
   .btn {
