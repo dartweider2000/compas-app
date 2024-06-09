@@ -27,7 +27,7 @@
 
 <style scoped lang="scss">
   .plus-card {
-    @apply py-[24px] px-[20px] rounded-[10px] border-[1px] border-[--card-border-gray] bg-[--card-fill] grid grid-flow-col gap-[22px] items-center;
+    @apply py-[24px] px-[20px] rounded-[10px] border-[1px] border-[--card-border-gray] bg-[--card-fill] grid grid-flow-col gap-[22px] items-center justify-start;
     // .plus-card__image
     &__image {
     }

@@ -20,6 +20,10 @@
     // .main-page__cards-block
     &__cards-block {
       @apply mt-[98px];
+
+      @media (max-width: 1100px) {
+        @apply mt-[20px];
+      }
     }
   }
 </style>

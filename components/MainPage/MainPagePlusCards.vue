@@ -76,13 +76,30 @@
     // .plus-block__container
     &__container {
       @apply grid gap-[33px];
+
+      @media (max-width: 1100px) {
+        @apply gap-[10px];
+      }
     }
     // .plus-block__title
     &__title {
+      @apply text-center;
     }
     // .plus-block__body
     &__body {
       @apply grid grid-cols-[repeat(3,1fr)] auto-rows-fr gap-[35px];
+
+      @media (max-width: 1200px) {
+        gap: clamp(10px, 2vw, 25px);
+      }
+
+      @media (max-width: 1160px) {
+        @apply grid-cols-[repeat(2,1fr)];
+      }
+
+      @media (max-width: 768px) {
+        @apply grid-cols-[1fr] auto-rows-auto;
+      }
     }
     // .plus-block__card
     &__card {
