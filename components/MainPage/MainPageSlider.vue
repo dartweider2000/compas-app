@@ -1,12 +1,14 @@
 <script setup lang="ts">
   const nextEl = ref<HTMLElement | null>(null);
   const prevEl = ref<HTMLElement | null>(null);
+  const bulletContainer = ref<HTMLElement | null>(null);
 </script>
 
 <template>
   <section class="slider-block">
     <MainContainer class="slider-block__container">
       <MainTitle class="slider-block__title">Документы</MainTitle>
+      <div ref="bulletContainer" class="slider-block__pagination"></div>
       <div class="slider-block__body">
         <div class="slider-block__navigation">
           <button ref="prevEl" class="slider-block__arrow arrow arrow_prev">
@@ -18,12 +20,17 @@
         </div>
         <Swiper
           class="slider-block__slider slider"
-          :modules="[SwiperNavigation]"
+          :modules="[SwiperNavigation, SwiperPagination]"
           :slides-per-view="3"
           :space-between="35"
           :navigation="{
             nextEl: nextEl,
             prevEl: prevEl,
+          }"
+          ,
+          :pagination="{
+            clickable: true,
+            el: bulletContainer,
           }"
         >
           <SwiperSlide class="slider__slide">
@@ -74,8 +81,10 @@
 
 <style scoped lang="scss">
   .slider-block {
+    @apply pb-[30px];
     // .slider-block__container
     &__container {
+      @apply relative pb-[13px];
     }
     // .slider-block__title
     &__title {
@@ -98,14 +107,20 @@
     // .slider-block__arrow
     &__arrow {
     }
+    &__pagination {
+      @apply absolute bottom-0 left-[50%] translate-x-[-50%] h-auto flex justify-center items-center;
+
+      :deep(.swiper-pagination-bullet) {
+        @apply w-[7px] h-[7px] rounded-full bg-[--inactive-bullet] opacity-100;
+      }
+
+      :deep(.swiper-pagination-bullet-active) {
+        @apply w-[10px] h-[10px] bg-[--active-bullet];
+      }
+    }
   }
   .slider {
-    @apply cursor-grab;
-    // @apply mt-[-10px] ml-[-10px] pl-[10px] pt-[10px] max-w-full;
-    // @apply mx-[-10px] px-[10px];
-    :deep(.swiper-wrapper) {
-      // @apply gap-[30px];
-    }
+    @apply cursor-grab overflow-visible;
     // .slider__slide
     &__slide {
     }
