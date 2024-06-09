@@ -21,16 +21,27 @@
         <Swiper
           class="slider-block__slider slider"
           :modules="[SwiperNavigation, SwiperPagination]"
-          :slides-per-view="3"
-          :space-between="35"
           :navigation="{
             nextEl: nextEl,
             prevEl: prevEl,
           }"
-          ,
           :pagination="{
             clickable: true,
             el: bulletContainer,
+          }"
+          :breakpoints="{
+            1001: {
+              slidesPerView: 3,
+              spaceBetween: 35,
+            },
+            769: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            0: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+            },
           }"
         >
           <SwiperSlide class="slider__slide">
@@ -81,7 +92,6 @@
 
 <style scoped lang="scss">
   .slider-block {
-    @apply pb-[30px];
     // .slider-block__container
     &__container {
       @apply relative pb-[13px];
@@ -92,11 +102,23 @@
 
       &:not(:last-child) {
         @apply mb-[40px];
+
+        @media (max-width: 1100px) {
+          @apply mb-[10px];
+        }
       }
     }
     // .slider-block__body
     &__body {
       @apply px-[21px] py-[10px] relative overflow-hidden;
+
+      @media (max-width: 1000px) {
+        @apply p-[10px];
+      }
+
+      // @media (max-width: 768px) {
+      //   @apply mx-[-10px];
+      // }
     }
     // .slider-block__slider
     &__slider {
@@ -149,6 +171,10 @@
     }
 
     @media (hover: none) {
+      @apply hidden;
+    }
+
+    @media (max-width: 1000px) {
       @apply hidden;
     }
 

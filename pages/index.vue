@@ -10,6 +10,7 @@
 
 <style scoped lang="scss">
   .main-page {
+    @apply mb-[10px];
     // .main-page__form-block
     &__form-block {
       @apply mt-[79px];
@@ -29,6 +30,10 @@
 
     &__slider-block {
       @apply mt-[85px];
+
+      @media (max-width: 1100px) {
+        @apply mt-[20px];
+      }
     }
   }
 </style>
