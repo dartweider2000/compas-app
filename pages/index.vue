@@ -4,6 +4,7 @@
   <main class="main-page">
     <MainPageFormBlock class="main-page__form-block" />
     <MainPagePlusCards class="main-page__cards-block" />
+    <MainPageSlider class="main-page__slider-block" />
   </main>
 </template>
 
@@ -24,6 +25,10 @@
       @media (max-width: 1100px) {
         @apply mt-[20px];
       }
+    }
+
+    &__slider-block {
+      @apply mt-[85px];
     }
   }
 </style>
