@@ -142,6 +142,28 @@
         }
       }
 
+      &:active,
+      &:focus {
+        @apply bg-[--light-blue];
+
+        :deep(.path-fill) {
+          @apply fill-red-600;
+        }
+
+        :deep(.path-stroke) {
+          @apply stroke-red-600 fill-[--white];
+        }
+
+        & > span {
+          &:first-of-type {
+            @apply text-[--white];
+          }
+          &:last-of-type {
+            @apply text-[--white];
+          }
+        }
+      }
+
       & > span {
         transition: var(--trans);
         &:first-of-type {
