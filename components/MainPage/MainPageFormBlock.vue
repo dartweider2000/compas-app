@@ -82,7 +82,7 @@
     }
     // .top-block__form
     &__form {
-      @apply grid grid-rows-[auto,auto] grid-cols-[2fr,1fr] gap-x-[30px] gap-y-[16px];
+      @apply grid grid-rows-[auto,auto] grid-cols-[minmax(56.838%,1fr),37.655%] gap-x-[30px] gap-y-[16px];
     }
     // .top-block__form-item
     &__form-item {
@@ -178,14 +178,6 @@
     // .top-block__warning
     &__warning {
       @apply text-[13px] leading-[120%] text-[--text-gray];
-    }
-  }
-  .btn {
-    // .btn_light-blue
-    &_light-blue {
-    }
-    // .btn_youtube
-    &_youtube {
     }
   }
 </style>
