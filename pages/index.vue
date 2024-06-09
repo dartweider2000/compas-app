@@ -11,6 +11,10 @@
     // .main-page__form-block
     &__form-block {
       @apply mt-[79px];
+
+      @media (max-width: 1100px) {
+        @apply mt-[20px];
+      }
     }
   }
 </style>
