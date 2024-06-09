@@ -1,9 +1,6 @@
 <script setup lang="ts">
-  // const key = ref<number>(0);
-
-  // onMounted(() => {
-  //   window.addEventListener("resize", () => key.value++);
-  // });
+  const nextEl = ref<HTMLElement | null>(null);
+  const prevEl = ref<HTMLElement | null>(null);
 </script>
 
 <template>
@@ -11,10 +8,23 @@
     <MainContainer class="slider-block__container">
       <MainTitle class="slider-block__title">Документы</MainTitle>
       <div class="slider-block__body">
+        <div class="slider-block__navigation">
+          <button ref="prevEl" class="slider-block__arrow arrow arrow_prev">
+            <SvgSliderNavigation />
+          </button>
+          <button ref="nextEl" class="slider-block__arrow arrow arrow_next">
+            <SvgSliderNavigation />
+          </button>
+        </div>
         <Swiper
           class="slider-block__slider slider"
+          :modules="[SwiperNavigation]"
           :slides-per-view="3"
           :space-between="35"
+          :navigation="{
+            nextEl: nextEl,
+            prevEl: prevEl,
+          }"
         >
           <SwiperSlide class="slider__slide">
             <SliderCard to="/" class="slider__slider-content">
@@ -77,16 +87,22 @@
     }
     // .slider-block__body
     &__body {
-      @apply px-[30px];
+      @apply px-[21px] py-[10px] relative overflow-hidden;
     }
     // .slider-block__slider
     &__slider {
     }
+    // .slider-block__navigation
+    &__navigation {
+    }
+    // .slider-block__arrow
+    &__arrow {
+    }
   }
   .slider {
+    @apply cursor-grab;
     // @apply mt-[-10px] ml-[-10px] pl-[10px] pt-[10px] max-w-full;
     // @apply mx-[-10px] px-[10px];
-    @apply p-[10px];
     :deep(.swiper-wrapper) {
       // @apply gap-[30px];
     }
@@ -95,6 +111,39 @@
     }
     // .slider__slider-content
     &__slider-content {
+    }
+  }
+  .arrow {
+    @apply absolute top-[50%] translate-y-[-50%] z-50;
+
+    &:not(:disabled) {
+      @media (hover: hover) {
+        &:hover {
+          :deep(.area) {
+            @apply fill-[--light-blue];
+          }
+        }
+      }
+    }
+
+    &:disabled {
+      @apply cursor-not-allowed;
+      :deep(.area) {
+        @apply fill-[--input-border-gray];
+      }
+    }
+
+    @media (hover: none) {
+      @apply hidden;
+    }
+
+    // .arrow_prev
+    &_prev {
+      @apply left-0;
+    }
+    // .arrow_next
+    &_next {
+      @apply right-0 scale-[-1];
     }
   }
 </style>

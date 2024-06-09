@@ -33,4 +33,9 @@
   </svg>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+  .arrow,
+  .area {
+    transition: var(--trans);
+  }
+</style>
