@@ -105,6 +105,12 @@
         }
       }
 
+      &:focus {
+        :deep(.path) {
+          @apply fill-[--light-blue];
+        }
+      }
+
       & svg {
         @apply mt-[2px];
       }
