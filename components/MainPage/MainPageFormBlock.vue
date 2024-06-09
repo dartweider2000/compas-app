@@ -22,27 +22,33 @@
             class="top-block__form-item block-from-item"
             label="Номер автомобиля"
           >
-            <ElInput class="top-block__form-item block-input" />
+            <ElInput class="top-block__form-item block-input" tabindex="1" />
           </ElFormItem>
           <ElFormItem
             class="top-block__form-item block-from-item"
             label="Регион"
           >
-            <ElInput class="top-block__form-item block-input" />
+            <ElInput class="top-block__form-item block-input" tabindex="2" />
           </ElFormItem>
           <ElFormItem
             class="top-block__form-item block-from-item"
             label="Свидетельство о регистрации ТС"
           >
-            <ElInput class="top-block__form-item block-input" />
+            <ElInput class="top-block__form-item block-input" tabindex="3" />
           </ElFormItem>
         </ElForm>
         <div class="top-block__actions">
-          <button class="top-block__light-blue-button btn btn_light-blue">
+          <button
+            class="top-block__light-blue-button btn btn_light-blue"
+            tabindex="4"
+          >
             <span>Проверить штрафы</span>
             <SvgArrow />
           </button>
-          <button class="top-block__youtube-button btn btn_youtube">
+          <button
+            class="top-block__youtube-button btn btn_youtube"
+            tabindex="5"
+          >
             <SvgYoutube />
             <span>О сервисе</span>
             <span>(1 мин. 20 сек)</span>
