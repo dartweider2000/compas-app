@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "@element-plus/nuxt",
     "@nuxtjs/google-fonts",
+    "nuxt-swiper",
   ],
   googleFonts: {
     families: {
