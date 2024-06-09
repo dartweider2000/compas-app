@@ -1,0 +1,13 @@
+.bread-crumb.el-breadcrumb {
+  & .el-breadcrumb__separator {
+    @apply w-[5px] h-[5px];
+  }
+
+  & .el-breadcrumb__inner {
+    @apply text-[13px] leading-[120%] text-[--text-gray] font-normal;
+  }
+
+  & .is-link {
+    @apply text-[--black]
+  }
+}

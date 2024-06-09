@@ -58,10 +58,10 @@
         <nav class="header__menu menu menu_left">
           <ul class="menu__list">
             <li class="menu__item">
-              <MenuLink to="/">Тарифы</MenuLink>
+              <MenuLink to="/tariffs">Тарифы</MenuLink>
             </li>
             <li class="menu__item">
-              <MenuLink to="/">Контакты</MenuLink>
+              <MenuLink to="/contacts">Контакты</MenuLink>
             </li>
           </ul>
         </nav>
