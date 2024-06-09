@@ -9,7 +9,13 @@
         >Проверьте штрафы и зарегестрируйтесь в 1 клик</MainTitle
       >
       <div class="top-block__image">
-        <img :src="macImageSrc" alt="macbook-iphone" loading="lazy" />
+        <img
+          :src="macImageSrc"
+          alt="macbook-iphone"
+          loading="lazy"
+          width="533"
+          height="335"
+        />
       </div>
       <div class="top-block__form-wrapper">
         <ElForm
@@ -90,6 +96,10 @@
     // .top-block__image
     &__image {
       @apply row-span-2;
+
+      & > img {
+        @apply max-w-full;
+      }
     }
     // .top-block__form-wrapper
     &__form-wrapper {
@@ -128,7 +138,7 @@
     }
     // .top-block__light-blue-button
     &__light-blue-button {
-      @apply flex gap-[6px] items-center;
+      @apply flex gap-[6px] items-center justify-between;
 
       @media (hover: hover) {
         &:hover {
@@ -203,7 +213,7 @@
           @apply text-[18px] leading-[23px] text-[--black];
         }
         &:last-of-type {
-          @apply text-[15px] leading-[19px] text-[--dark-blue];
+          @apply text-[15px] leading-[19px] text-[--dark-blue] justify-self-end;
         }
       }
     }
