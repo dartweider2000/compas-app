@@ -1,4 +1,33 @@
 <script setup lang="ts">
+  interface ISlide {
+    title: string;
+    text: string;
+    to: string;
+  }
+
+  const slideList = ref<ISlide[]>([
+    {
+      title: "Лицензионный договор",
+      text: "Механизм разбрасывания веерного типа приводится в действие от колес тележки, отличается простой и надежной конструкцией, не нуждается в смазке. ",
+      to: "/",
+    },
+    {
+      title: "Политика обработки персональных данных",
+      text: "Радиус разброса ПГМ составляет до 3 метров и может регулироваться.",
+      to: "/",
+    },
+    {
+      title: "Информация об оплате",
+      text: "Десятипозиционный переключатель дозировки расположен на ручке тележки и позволяет очень точно регулировать объем рассыпаемого реагента с учетом его массы и фракции.",
+      to: "/",
+    },
+    {
+      title: "Лицензионный договор",
+      text: "Механизм разбрасывания веерного типа приводится в действие от колес тележки, отличается простой и надежной конструкцией, не нуждается в смазке. ",
+      to: "/",
+    },
+  ]);
+
   const nextEl = ref<HTMLElement | null>(null);
   const prevEl = ref<HTMLElement | null>(null);
   const bulletContainer = ref<HTMLElement | null>(null);
@@ -44,43 +73,15 @@
             },
           }"
         >
-          <SwiperSlide class="slider__slide">
-            <SliderCard to="/" class="slider__slider-content">
-              <template #title> Лицензионный договор </template>
+          <SwiperSlide
+            v-for="{ text, title, to } in slideList"
+            :key="to"
+            class="slider__slide"
+          >
+            <SliderCard :to="to" class="slider__slider-content">
+              <template #title> {{ title }} </template>
               <template #text>
-                Механизм разбрасывания веерного типа приводится в действие от
-                колес тележки, отличается простой и надежной конструкцией, не
-                нуждается в смазке.
-              </template>
-            </SliderCard>
-          </SwiperSlide>
-          <SwiperSlide class="slider__slide">
-            <SliderCard to="/" class="slider__slider-content">
-              <template #title> Лицензионный договор </template>
-              <template #text>
-                Механизм разбрасывания веерного типа приводится в действие от
-                колес тележки, отличается простой и надежной конструкцией, не
-                нуждается в смазке.
-              </template>
-            </SliderCard>
-          </SwiperSlide>
-          <SwiperSlide class="slider__slide">
-            <SliderCard to="/" class="slider__slider-content">
-              <template #title> Лицензионный договор </template>
-              <template #text>
-                Механизм разбрасывания веерного типа приводится в действие от
-                колес тележки, отличается простой и надежной конструкцией, не
-                нуждается в смазке.
-              </template>
-            </SliderCard>
-          </SwiperSlide>
-          <SwiperSlide class="slider__slide">
-            <SliderCard to="/" class="slider__slider-content">
-              <template #title> Лицензионный договор </template>
-              <template #text>
-                Механизм разбрасывания веерного типа приводится в действие от
-                колес тележки, отличается простой и надежной конструкцией, не
-                нуждается в смазке.
+                {{ text }}
               </template>
             </SliderCard>
           </SwiperSlide>
