@@ -8,6 +8,10 @@ export default defineNuxtConfig({
     "@nuxtjs/google-fonts",
     "nuxt-swiper",
   ],
+  app: {
+    baseURL: "/compas-app/",
+    buildAssetsDir: "assets",
+  },
   googleFonts: {
     families: {
       "PT Sans": [400, 700],

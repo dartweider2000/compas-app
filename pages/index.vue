@@ -4,7 +4,7 @@
   <main class="main-page">
     <MainPageFormBlock class="main-page__form-block" />
     <MainPagePlusCards class="main-page__cards-block" />
-    <MainPageSlider class="main-page__slider-block" />
+    <LazyMainPageSlider class="main-page__slider-block" />
   </main>
 </template>
 
