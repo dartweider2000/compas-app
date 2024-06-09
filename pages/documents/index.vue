@@ -7,11 +7,10 @@
     <template #bread-crumbs>
       <ElBreadcrumb class="bread-crumb" :separator-icon="SvgBreadCrumbsIcon">
         <ElBreadcrumbItem to="/">Главная</ElBreadcrumbItem>
-        <ElBreadcrumbItem to="/documents">Документы</ElBreadcrumbItem>
-        <ElBreadcrumbItem>Лицензионный договор</ElBreadcrumbItem>
+        <ElBreadcrumbItem>Документы</ElBreadcrumbItem>
       </ElBreadcrumb>
     </template>
-    <template #title>Лицензионный договор</template>
+    <template #title>Документы</template>
   </NuxtLayout>
 </template>
 

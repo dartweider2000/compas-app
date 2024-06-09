@@ -26,6 +26,12 @@
     else document.body.style.overflow = "";
   });
 
+  const route = useRoute();
+  watch(
+    () => route.path,
+    () => (isOpen.value = false)
+  );
+
   onClickOutside(header, () => {
     isOpen.value = false;
   });

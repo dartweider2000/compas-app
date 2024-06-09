@@ -1,6 +1,10 @@
 .bread-crumb.el-breadcrumb {
   & .el-breadcrumb__separator {
     @apply w-[5px] h-[5px];
+
+    &.el-icon {
+      @apply mx-[10px];
+    }
   }
 
   & .el-breadcrumb__inner {
@@ -8,6 +12,10 @@
   }
 
   & .is-link {
-    @apply text-[--black]
+    @apply text-[--black];
+
+    &:hover, &:active {
+      @apply text-[--light-blue];
+    }
   }
 }

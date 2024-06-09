@@ -7,11 +7,13 @@
     <template #bread-crumbs>
       <ElBreadcrumb class="bread-crumb" :separator-icon="SvgBreadCrumbsIcon">
         <ElBreadcrumbItem to="/">Главная</ElBreadcrumbItem>
-        <ElBreadcrumbItem to="/">Документы</ElBreadcrumbItem>
-        <ElBreadcrumbItem>Политики</ElBreadcrumbItem>
+        <ElBreadcrumbItem to="/documents">Документы</ElBreadcrumbItem>
+        <ElBreadcrumbItem
+          >Политика обработки персональных данных</ElBreadcrumbItem
+        >
       </ElBreadcrumb>
     </template>
-    <template #title>Политики</template>
+    <template #title>Политика обработки персональных данных</template>
   </NuxtLayout>
 </template>
 
