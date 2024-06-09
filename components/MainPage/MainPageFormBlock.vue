@@ -1,5 +1,47 @@
 <script setup lang="ts">
+  import type { FormRules } from "element-plus";
   import macImageSrc from "~/assets/img/mac-iphone-image.png";
+
+  interface IFormModel {
+    carNumber: string;
+    region: string;
+    registrationNumber: string;
+  }
+
+  const model = ref<IFormModel>({
+    carNumber: "",
+    region: "",
+    registrationNumber: "",
+  });
+
+  const rules = ref<FormRules<IFormModel>>({
+    carNumber: [
+      {
+        required: true,
+        message: "Поле должно быть заполнено",
+        trigger: "blur",
+      },
+    ],
+    region: [
+      {
+        required: true,
+        message: "Поле должно быть заполнено",
+        trigger: "blur",
+      },
+      {
+        pattern: /^[\d]+$/gi,
+        message: "В жтом поле только цифры",
+        trigger: "blur",
+      },
+    ],
+    registrationNumber: [
+      {
+        required: true,
+        message: "Поле должно быть заполнено",
+        trigger: "blur",
+      },
+    ],
+  });
 </script>
 
 <template>
@@ -20,6 +62,8 @@
       <div class="top-block__form-wrapper">
         <ElForm
           class="top-block__form block-form"
+          :model="model"
+          :rules="rules"
           :hide-required-asterisk="true"
           label-position="top"
           @submit.prevent
@@ -27,20 +71,35 @@
           <ElFormItem
             class="top-block__form-item block-form-item"
             label="Номер автомобиля"
+            prop="carNumber"
           >
-            <ElInput class="top-block__form-item block-input" tabindex="1" />
+            <ElInput
+              v-model="model.carNumber"
+              class="top-block__form-item block-input"
+              tabindex="1"
+            />
           </ElFormItem>
           <ElFormItem
             class="top-block__form-item block-form-item"
             label="Регион"
+            prop="region"
           >
-            <ElInput class="top-block__form-item block-input" tabindex="2" />
+            <ElInput
+              v-model="model.region"
+              class="top-block__form-item block-input"
+              tabindex="2"
+            />
           </ElFormItem>
           <ElFormItem
             class="top-block__form-item block-form-item"
             label="Свидетельство о регистрации ТС"
+            prop="registrationNumber"
           >
-            <ElInput class="top-block__form-item block-input" tabindex="3" />
+            <ElInput
+              v-model="model.registrationNumber"
+              class="top-block__form-item block-input"
+              tabindex="3"
+            />
           </ElFormItem>
         </ElForm>
         <div class="top-block__actions">
@@ -103,7 +162,7 @@
     }
     // .top-block__form-wrapper
     &__form-wrapper {
-      @apply grid gap-[15px] w-full;
+      @apply grid gap-[18px] w-full;
     }
     // .top-block__form
     &__form {
