@@ -156,6 +156,9 @@
         </div>
       </div>
     </MainContainer>
+    <Teleport to="body">
+      <MainPagePopup class="popup-block" />
+    </Teleport>
   </section>
 </template>
 
