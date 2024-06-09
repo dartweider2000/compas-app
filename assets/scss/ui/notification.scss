@@ -1,3 +1,4 @@
 .el-notification.right {
   max-width: calc(100% - (var(--container-padding) * 2));
+  @apply z-[--notification-z-index];
 }

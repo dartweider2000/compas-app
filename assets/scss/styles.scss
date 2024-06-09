@@ -16,6 +16,10 @@
   --container-padding: 16px;
   --container-width: calc(1180px + var(--container-padding) * 2);
   --header-height: 65px;
+
+  --header-z-index: 999;
+  --notification-z-index: 9999;
+  --popup-z-index: 99999;
 }
 
 * {

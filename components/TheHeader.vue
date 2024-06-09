@@ -83,7 +83,7 @@
 
 <style scoped lang="scss">
   .header {
-    @apply h-[--header-height] grid items-center;
+    @apply h-[--header-height] grid items-center z-[--header-z-index];
     background: linear-gradient(
       to right,
       var(--black) 0%,
