@@ -13,4 +13,8 @@
   .wrapper {
     @apply min-h-dvh overflow-hidden;
   }
+
+  .main {
+    @apply pt-[--header-height];
+  }
 </style>
