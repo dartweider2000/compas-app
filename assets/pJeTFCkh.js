@@ -1,0 +1,1 @@
+import{d as t,y as o,J as _,_ as s}from"./_Cybks7O.js";import{_ as n}from"./u8NiVlby.js";const a={class:"title"},r=t({__name:"MainTitle",setup(c){return(e,p)=>(o(),_("h2",a,[s(e.$slots,"default",{},void 0,!0)]))}}),m=n(r,[["__scopeId","data-v-58e4b1c4"]]);export{m as _};
