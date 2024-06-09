@@ -1,0 +1,13 @@
+.el-input.block-input {
+  --el-input-focus-border-color: var(--light-blue);
+  --el-input-border-color: var(--input-border-gray);
+
+  & .el-input__wrapper {
+    @apply p-[10px] rounded-[5px];
+  }
+
+  & .el-input__inner {
+    --el-input-inner-height: 20px;
+    @apply text-[16px];
+  }
+}
