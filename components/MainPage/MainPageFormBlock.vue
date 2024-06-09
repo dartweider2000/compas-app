@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import type { FormRules } from "element-plus";
+  import type { FormInstance, FormRules } from "element-plus";
   import macImageSrc from "~/assets/img/mac-iphone-image.png";
 
   interface IFormModel {
@@ -42,6 +42,34 @@
       },
     ],
   });
+
+  const formInstance = ref<FormInstance | null>(null);
+  const isDisabledSubmitButton = ref<boolean>(false);
+  const submitHandler = async () => {
+    try {
+      isDisabledSubmitButton.value = true;
+
+      await formInstance.value!.validate();
+
+      model.value = {
+        carNumber: "",
+        region: "",
+        registrationNumber: "",
+      };
+
+      ElNotification({
+        title: "Данные были отправлены",
+        type: "success",
+      });
+    } catch {
+      isDisabledSubmitButton.value = false;
+
+      ElNotification({
+        title: "Ошибка в заполнении формы",
+        type: "error",
+      });
+    }
+  };
 </script>
 
 <template>
@@ -61,6 +89,7 @@
       </div>
       <div class="top-block__form-wrapper">
         <ElForm
+          ref="formInstance"
           class="top-block__form block-form"
           :model="model"
           :rules="rules"
@@ -106,6 +135,8 @@
           <button
             class="top-block__light-blue-button btn btn_light-blue"
             tabindex="4"
+            :disabled="isDisabledSubmitButton"
+            @click="submitHandler"
           >
             <span>Проверить штрафы</span>
             <SvgArrow />
@@ -199,17 +230,25 @@
     &__light-blue-button {
       @apply flex gap-[6px] items-center justify-between;
 
-      @media (hover: hover) {
-        &:hover {
+      &:not(:disabled) {
+        @media (hover: hover) {
+          &:hover {
+            :deep(.path) {
+              @apply fill-[--light-blue];
+            }
+          }
+        }
+
+        &:active {
           :deep(.path) {
             @apply fill-[--light-blue];
           }
         }
-      }
 
-      &:focus {
-        :deep(.path) {
-          @apply fill-[--light-blue];
+        &:focus {
+          :deep(.path) {
+            @apply fill-[--light-blue];
+          }
         }
       }
 

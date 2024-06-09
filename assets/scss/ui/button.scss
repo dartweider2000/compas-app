@@ -5,14 +5,21 @@
   &_light-blue {
     @apply py-[9px] px-[18px] text-[15px] leading-[19px] text-[--white] bg-[--light-blue] border-[1px] border-solid border-[--light-blue] font-normal;
 
-    @media (hover: hover) {
-      &:hover {
+    &:not(:disabled) {
+      @media (hover: hover) {
+        &:hover {
+          @apply bg-[--white] text-[--light-blue];
+        }
+      }
+
+      &:focus,
+      &:active {
         @apply bg-[--white] text-[--light-blue];
       }
     }
 
-    &:focus, &:active {
-      @apply bg-[--white] text-[--light-blue];
+    &:disabled {
+      @apply bg-[--input-border-gray] border-[--input-border-gray];
     }
   }
 }
